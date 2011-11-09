@@ -1,0 +1,22 @@
+\fboxsep0pt
+\fboxrule0.05pt
+
+\newcommand{\image}[5]{
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=#3\textwidth]{#2}
+    \caption[#5]{#4}
+    \label{fig:#1}
+  \end{figure}
+}
+
+\newcommand{\imageFrame}[5]{
+  \begin{figure}[htbp]
+    \centering
+    \fbox{
+      \includegraphics[width=#3\textwidth]{#2}
+    }
+    \caption[#5]{#4}
+    \label{fig:#1}
+  \end{figure}
+}

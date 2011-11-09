@@ -1,0 +1,15 @@
+\usepackage{eso-pic}
+\usepackage{color}
+\usepackage{type1cm}
+\makeatletter
+  \AddToShipoutPicture{%
+    \setlength{\@tempdimb}{.5\paperwidth}%
+    \setlength{\@tempdimc}{.5\paperheight}%
+    \setlength{\unitlength}{1pt}%
+    \put(\strip@pt\@tempdimb,\strip@pt\@tempdimc){%
+      \makebox(0,0){\rotatebox{12}{\textcolor[gray]{0.86}{
+        \fontsize{2.4cm}{2.4cm}\selectfont{preliminary \linebreak copy}}}}
+    }
+}
+\makeatother
+

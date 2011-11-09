@@ -1,0 +1,15 @@
+This LaTeX version of _why's poignant Guide to Ruby was crafted by the
+mad Ruby (yml-parsing) skills of Michael Specht, who kindly gave me the tex
+source. This repo hosts my tweaks of Michael's tex source.
+
+Michael's original post can be found at:
+http://www.thinkingaloud.net/whys-poignant-guide-to-ruby/
+
+A copy of _why's project is at
+http://poignant.rubyforge.org/
+
+An working HTML version seems to be hosted on
+http://mislav.uniqpath.com/poignant-guide/
+
+Distributed under the Creative Common's Attribute-ShareAlike license
+in respect of _why's choice of license.

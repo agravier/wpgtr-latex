@@ -9,8 +9,16 @@
 \definecolor{gray-30}{gray}{0.7}
 \definecolor{gray-40}{gray}{0.6}
 \definecolor{fadered}{rgb}{0.8824, 0.9529, 0.8745}
+\definecolor{basiccolor}{rgb}{0.0, 0.0, 0.0}
+\definecolor{commentcolor}{rgb}{0.2, 0.6, 0.3}
+\definecolor{keywordscolor}{rgb}{0.8, 0.1, 0.1}
+\definecolor{stringcolor}{rgb}{0.1, 0.3, 0.3}
+\definecolor{ricolor}{rgb}{0.5, 0.3, 0.2}
+\definecolor{parensaroundricolor}{rgb}{1.0, 0.5, 0.5}
+\definecolor{belgradeoperatorcolor}{rgb}{0.2, 0.0, 0.0}
 \usepackage{subfigure}
-\usepackage[papersize={6.8in,8.8in},left=2cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage[papersize={7.2in,8.8in},bindingoffset=1cm,left=2cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\geometry{twoside}
 \usepackage{setspace}
 \usepackage[charter]{mathdesign}
 \usepackage[small]{caption}
@@ -20,8 +28,24 @@
 \usepackage{picins}
 \usepackage[normalem]{ulem}
 
+\usepackage{manfnt}
+
+\renewcommand{\appendixname}{Expansion Pak No.}
+
 \usepackage{listings} 
-%\lstset{numbers=left, numberstyle=\scriptsize\ttfamily, numbersep=10pt, captionpos=b} 
+%\lstset{numbers=left, numberstyle=\scriptsize\ttfamily,
+%numbersep=10pt, captionpos=b} 
+\lstloadlanguages{Ruby}
+
+%[basicstyle=\ttfamily\color{basiccolor},
+%    commentstyle = \ttfamily\color{commentcolor},
+%    keywordstyle=\ttfamily\color{keywordscolor},
+%    stringstyle=\color{stringcolor},
+%    language=Ruby,
+%    basicstyle=\small\ttfamily,
+%    showstringspaces=false,
+%  ]
+
 \lstset{backgroundcolor=\color{white}}
 \lstset{basicstyle=\small\ttfamily}
 \lstset{framesep=4pt}
@@ -87,12 +111,38 @@ pdfproducer = {pdflatex}}
 \normalfont\noindent\large{\em why the lucky stiff}
 \end{center}
 \end{titlepage}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\newpage
+\pagestyle{empty}
+\begin{center}
+\vspace*{4cm}
+This PDF edition of \_why's Poignant Guide to Ruby is distributed
+under the Creative Commons Attribution-ShareAlike 3.0 Unported 
+(CC BY-SA 3.0)
+\vfill
+http://creativecommons.org/licenses/by-sa/3.0/\\\\
+Credits go to why the lucky stiff for writing and illustrating the
+book.\\
+The initial LaTeX version was created by Michael Specht. Further
+improvements and minimal actualization by Alexandre Gravier.
+\hspace{8.5cm}--- A
+\vspace{5cm}
+\end{center}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 \cleartoevenpage
 \setcounter{page}{2}
 \setcounter{tocdepth}{1}
 \setcounter{secnumdepth}{2}
+\begin{spacing}{1.135}
 \tableofcontents
+\end{spacing}
+
 \newpage
 
 \thispagestyle{empty}
@@ -105,7 +155,7 @@ pdfproducer = {pdflatex}}
   \fancyhf{}
   \fancyhead[EL,OR]{\thepage}
 }
-\cleartoevenpage
+\cleartooddpage
 
 
 \chapter{About this Book}
@@ -114,6 +164,9 @@ pdfproducer = {pdflatex}}
   \includegraphics{cache/chapterpoignantguide1.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
 	\includegraphics[width=1.0\textwidth]{cache/1.png} 
 
@@ -122,7 +175,11 @@ pdfproducer = {pdflatex}}
 	\includegraphics[width=1.0\textwidth]{cache/3.png} 
 
 	\includegraphics[width=1.0\textwidth]{cache/4.png} 
-\cleartoevenpage
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\cleartooddpage
 
 
 \chapter{Kon'nichi wa, Ruby}
@@ -131,8 +188,10 @@ pdfproducer = {pdflatex}}
   \includegraphics{cache/chapterpoignantguide2.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
-
 
 \section{Opening This Book}
 
@@ -352,8 +411,12 @@ this book will be starting off with an exorbitant amount of {\bf
   cartoon foxes}.
 
 And I will be counting on you to turn them into {\bf synergy}.
-\cleartoevenpage
 
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\cleartooddpage
 
 \chapter{A Quick (and Hopefully Painless) Ride Through Ruby \mbox{(with Cartoon Foxes)}}
 \vfill
@@ -361,7 +424,11 @@ And I will be counting on you to turn them into {\bf synergy}.
   \includegraphics{cache/chapterpoignantguide3.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
+
 	\includegraphics[width=1.0\textwidth]{cache/5.png}
 
 Yeah, these are the two.  My asthma's kickin in so I've got to go take
@@ -575,7 +642,14 @@ celebrity.  ``I'm a lot wiser,'' says Avril Lavigne.  ``Now I know
 what the business is like -- what you have to do and how to work it.''
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
   avril_quote = "I'm a lot wiser.  Now I know
   what the business is like -- what you have
@@ -590,7 +664,14 @@ now we're storing a collection of characters (a string) in the {\bf
 printers, who just happen to use Ruby to operate their printing press.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print oprah_quote
  print avril_quote
@@ -884,7 +965,14 @@ The curly braces can also be traded for the words {\bf do} and {\bf
   end}, which is nice if your block is longer than one line.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  loop do
    print "Much better."
@@ -1032,7 +1120,14 @@ next definition.  And on each page: a word followed by an arrow
 pointing to the definition.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  {
    'name' => 'Peter',
@@ -1120,7 +1215,14 @@ these we've already discussed.  They are in the safe house, my friend.
 You touch these and you'll be served an official syntax error.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
   alias   and     BEGIN   begin   break   case    class   def     defined 
   do      else    elsif   END     end     ensure  false   for     if 
@@ -1227,7 +1329,14 @@ eye worth of code.
 {\bf Say aloud each of the parts of speech used below.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'net/http' 
  Net::HTTP.start( 'www.ruby-lang.org', 80 ) do |http| 
@@ -1376,8 +1485,13 @@ mountains and islands of your stronghold.
 
 So I guess you're going to be okay.  Whatdya say?  Let's get moving on
 this script of yours?
-\cleartoevenpage
-
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\cleartooddpage
 
 \chapter{Floating Little Leaves of Code}
 \vfill
@@ -1385,10 +1499,13 @@ this script of yours?
   \includegraphics{cache/chapterpoignantguide4.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
 	\includegraphics[width=1.0\textwidth]{cache/20.png}
         \includegraphics[width=1.0\textwidth]{cache/21.png}
-
+\clearpage
 I've never seen the ham do anything but leak juice.  Today, our
 business in Ambrose Caverns is with the elf.  He is a crucial part of
 the next lessons. Let's all make him feel welcome. Go start warming up
@@ -1424,7 +1541,14 @@ crystals.  One treegrown note is worth five crystals.  So the basic
 money situation looks like this:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  blue_crystal = 1 
  leaf_tender = 5
@@ -1658,7 +1782,14 @@ blocks we saw in the last chapter, in that both end with an
 \lstinline[breaklines=true]|end|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  if plastic_cup 
    print "Plastic cup is on the up 'n' up!" 
@@ -1684,7 +1815,14 @@ keyword has a policy of {\bf only allowing those with a negative
 \lstinline[breaklines=true]|false|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  unless plastic_cup 
    print "Plastic cup is on the down low."  
@@ -1698,7 +1836,14 @@ You can also use \lstinline[breaklines=true]|if| and
   of code}, if that's all that is being protected.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print "Yeah, plastic cup is up again!"  if plastic_cup 
  print "Hardly. It's down." unless plastic_cup
@@ -1710,7 +1855,14 @@ And another nice trick: stack the \lstinline[breaklines=true]|if| and
 \lstinline[breaklines=true]|unless|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print "We're using plastic 'cause we don't have glass." if plastic_cup unless glass_cup
 
@@ -1759,7 +1911,14 @@ of a red carpet where only \lstinline[breaklines=true]|true| can be
 admitted.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  if approaching_guy == true 
    print "That necklace is classic."  
@@ -1777,7 +1936,14 @@ If you have a hard time getting along with
 \lstinline[breaklines=true]|false|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  if approaching_guy == false 
    print "Get in here, you conniving devil."
@@ -1810,7 +1976,14 @@ Now, do you remember what you need to do to {\bf dominate} in Ruby?
 {\em Use the answers the methods give you.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  if nil.==( true )
    print "This will never see realization."  
@@ -1830,7 +2003,14 @@ A shake of the head. That answer is given to
 \lstinline[breaklines=true]|print| never sees realization.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  at_hotel = true 
  email = if at_hotel 
@@ -1864,7 +2044,14 @@ Should you have several lines of code in an
   last full statement will be used}.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  email = if at_hotel 
            address = "why" 
@@ -1901,7 +2088,14 @@ Yes, nothing is returned.  By which I mean:
 \lstinline[breaklines=true]|nil| is a very useful answer.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print( if at_hotel.nil?
           "No clue if he's in the hotel."
@@ -2042,7 +2236,14 @@ the window and watch for FBI.  I'm going to start this script.
 
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print "Type and be diabolical: " 
  idea_backwards = gets.reverse
@@ -2075,7 +2276,14 @@ The capital letters give it away.  Maybe if we uppercase all letters
 in the string before we reverse it.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  idea_backwards = gets.upcase.reverse
 
@@ -2105,7 +2313,14 @@ Hash, each dangerous word is matched up against a code word (or
 phrase).  The code word will be swapped in for the real word.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  code_words = {
    'starmonkeys' => 'Phil and Pete, those prickly chancellors of the New Reich',
@@ -2164,7 +2379,14 @@ I went ahead and saved the Hash of code words to a file called {\bf
   wordlist.rb}.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'wordlist'
 
@@ -2209,7 +2431,14 @@ and swaps in the new code words.  The second section saves the encoded
 idea into a new text file.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  code_words.each do |real, code|
    idea.gsub!( real, code )
@@ -2239,7 +2468,14 @@ Why aren't we hanging on to the answer from
 should keep?  You'd think the line would read:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  safe_idea = idea.gsub( real, code )
 
@@ -2275,7 +2511,14 @@ his prey?  Merciless assailant!)
 Let us now save the encoded idea to a file.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  # Save the jibberish to a new file
  print "File encoded.  Please enter a name for this idea: "
@@ -2356,7 +2599,14 @@ the \lstinline[breaklines=true]|File| class. You'll need to give the
 full method name.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  File::open( 'idea-' + idea_name + '.txt', 'w' ) do |f|
    f << idea
@@ -2392,7 +2642,14 @@ Here, let's get your ideas back to their original verbage, so you can
 rumminate over their brilliance.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'wordlist'
 
@@ -2570,7 +2827,14 @@ first example you've shown me...''  He pointed to an example I'd
 written down for him.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  kitty_toys = 
    [:shape => 'sock', :fabric => 'cashmere'] +
@@ -2613,7 +2877,14 @@ the plus signs?  I'm adding them into one big Array.  Here's another
 way of writing it...''  I jotted down.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  kitty_toys = [
    {:shape => 'sock', :fabric => 'cashmere'},
@@ -2637,7 +2908,14 @@ Array to describe each toy.
 them out in that order.''
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  kitty_toys.sort_by { |toy| toy[:shape] }.each do |toy| 
    puts "Blixy has a #{ toy[:shape] } made of #{ toy[:fabric] }"
@@ -2704,7 +2982,14 @@ blame Mad.  He did his best.''
 shoulder.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  kitty_toys.sort_by { |toy| toy[:shape] }.each do |toy|
    puts "Blixy has a #{ toy[:shape] } made of #{ toy[:fabric] }"
@@ -2755,7 +3040,14 @@ shape by skipping those that do with
 \lstinline[breaklines=true]|next|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  non_eggroll = 0
  kitty_toys.each do |toy|
@@ -2773,7 +3065,14 @@ Hashes until we hit the toy whose fabric is chenille.  The
 \lstinline[breaklines=true]|each| to abruptly end.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  kitty_toys.each do |toy|
    break if toy[:fabric] == 'chenille'
@@ -2802,7 +3101,10 @@ bored, I could always switch on {\em The Phantom Menace} to get me in
 the mood.
 
 	\includegraphics[width=1.0\textwidth]{cache/31.png}
-\cleartoevenpage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\cleartooddpage
 
 
 \chapter{Them What Make the Rules and Them What Live the Dream}
@@ -2811,6 +3113,9 @@ the mood.
   \includegraphics{cache/chapterpoignantguide5.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
 	\includegraphics[width=1.0\textwidth]{cache/32.png}
 
@@ -2856,7 +3161,14 @@ So, please: \lstinline[breaklines=true]|def| and
 \lstinline[breaklines=true]|when|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def dr_chams_timeline( year )
    case year
@@ -2897,7 +3209,14 @@ The \lstinline[breaklines=true]|def| keyword.  Here is our first {\bf
 anywhere in Ruby.  And how do we run it?
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  puts dr_chams_timeline( 1941 )
 
@@ -2923,7 +3242,14 @@ You can do the same thing with a bunch of
 \lstinline[breaklines=true]|if..elsif| statements, but it's wordier.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  case year
  when 1894
@@ -2940,7 +3266,14 @@ You can do the same thing with a bunch of
 Is identical to:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  if 1894 === year
    "Born."
@@ -3016,7 +3349,14 @@ experiment collapsed in a dire plume of smoke and her innocence ({\em
 To Hannah, I code.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  opus_magnum = true
  def save_hannah
@@ -3057,7 +3397,14 @@ instance variables will be explored in a moment.
 Blocks have scope, but it's a bit fuzzier.  More flexible.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  verb = 'rescued'
  ['sedated', 'sprinkled', 'electrocuted'].
@@ -3078,7 +3425,14 @@ So, the question is: after the block's over, will he have rescued
 Hannah?
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  Dr. Cham sedated his niece Hannah.
  Dr. Cham sprinkled his niece Hannah.
@@ -3101,7 +3455,14 @@ then that variable vanishes at the end of the block.  The block's {\bf
 \lstinline[breaklines=true]|verb| wasn't used before the block.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  ['sedated', 'powdered', 'electrocuted'].
  each do |verb|
@@ -3182,7 +3543,14 @@ Ruby code on a pad of cheese-colored paper.  (And queer cheese smells
 were coming from somewhere, I can't say where.)
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'endertromb'
  class WishMaker
@@ -3215,7 +3583,14 @@ available for granting. A new \lstinline[breaklines=true]|WishMaker|
 is created at sun up.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  todays_wishes = WishMaker.new
 
@@ -3252,7 +3627,14 @@ that points to the energy left inside. The
 as that gauge.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  todays_wishes = WishMaker.new 
  todays_wishes.grant( "antlers" )
@@ -3287,7 +3669,14 @@ At this point in your instruction, it's easier to understand that {\bf
   everything in Ruby is an object.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  number = 5
  print number.next                  # prints '6'
@@ -3304,7 +3693,14 @@ At this point in your instruction, it's easier to understand that {\bf
 And, consequently, each object has a class behind the scenes.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print 5.class                       # prints 'Integer'
  print 'wishing for antlers'.class   # prints 'String'
@@ -3352,7 +3748,14 @@ wish maker, he then followed with a class for the planet's mind
 reader.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'endertromb'
  class MindReader
@@ -3711,7 +4114,14 @@ can simply reach up into the class and see the shared password.
 Here's probably how the password protection works.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Elevator
    def initialize( pass )
@@ -3842,7 +4252,14 @@ He wanted to see what I'd written, so I showed him this short method
 I've written for you.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def wipe_mutterings_from( sentence )
    while sentence.include? '('
@@ -3862,7 +4279,14 @@ speaking,'' I said.
 And I fed something he said earlier into the method.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  what_he_said = "But, strangely (em-pithy-dah),
    I learned upon, played upon (pon-shoo) the
@@ -3961,7 +4385,14 @@ which may make more sense to someone who inadvertantly hands the wrong
 object in for cleaning.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def wipe_mutterings_from( sentence )
    unless sentence.respond_to? :include?
@@ -4019,7 +4450,14 @@ Now, {\bf Confusing Aspect No. 2}: Have you noticed how our method
 changes the sentence?
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  something_said = "A (gith) spaceship."
  wipe_mutterings_from( something_said )
@@ -4052,7 +4490,14 @@ thing.  Which is an easy change!  We just need to
 \lstinline[breaklines=true]|dup| the string.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def wipe_mutterings_from( sentence )
    unless sentence.respond_to? :include?
@@ -4075,7 +4520,14 @@ The \lstinline[breaklines=true]|dup| method makes a copy of any
 object.  Look at that line we added again on its own:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  sentence = sentence.dup
 
@@ -4102,7 +4554,14 @@ the string that you can safely use {\bf without changing the string
 You'll see plenty of examples of variable names being reused.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  x = 5
  x = x + 1
@@ -4150,7 +4609,14 @@ placed right between the prongs where the worker can see it.  When it
 comes to strings, we can use a variety of objects as our index.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  str = "A string is a long shelf of letters and spaces."
  puts str[0]       # prints 65 (the character code for an 'A')
@@ -4168,7 +4634,14 @@ will cause the method to hang and never come back. Take a look at the
 method.  Can you throw in a muddy stick to clog the loop?
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def wipe_mutterings_from( sentence )
    unless sentence.respond_to? :include?
@@ -4190,7 +4663,14 @@ method.  Can you throw in a muddy stick to clog the loop?
 Here, give the muddy stick a curve before you jam it.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  muddy_stick = "Here's a ( curve."
  wipe_mutterings_from( muddy_stick )
@@ -4209,7 +4689,14 @@ How would you rewrite this method?  Me, I know my way around Ruby, so
 I'd use a regular expression.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def wipe_mutterings_from( sentence )
    unless sentence.respond_to? :gsub
@@ -4285,7 +4772,14 @@ So the suffix is definitely subject to the sunlight.  As far as I can
 tell, the prefix indicates the namecaller's relationship to Paij-ree.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class String
 
@@ -4360,7 +4854,14 @@ simplify things a bit, let's try making a method which breaks up a
 string on its dashes.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class String
    def dash_split
@@ -4396,7 +4897,14 @@ explicitly, since you can call methods directly from inside other
 method definitions.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class String
    def dash_split; split( '-' ); end
@@ -4410,7 +4918,14 @@ loop.  Learning about \lstinline[breaklines=true]|Array#collect| is
 essential. Let's look close.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  signif = parts.collect do |p|
    syllables.shift[p]
@@ -4437,7 +4952,14 @@ cents, one is nine cents. Let's see how much each cat would cost if we
 added a 20% tip.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  catsandtips = [0.12, 0.63, 0.09].collect { |catcost| catcost + ( catcost * 0.20 ) }
 
@@ -4573,7 +5095,14 @@ In Ruby, the Object is the very center of all things.  It is The
 Original.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class ToastyBear < Object; end
 
@@ -4592,7 +5121,14 @@ But every object inherits from \lstinline[breaklines=true]|Object|.
 The code...
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class ToastyBear; end
 
@@ -4602,7 +5138,14 @@ The code...
 Is identical to...
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class ToastyBear < Object; end
 
@@ -4624,7 +5167,14 @@ class.  If you then ensure that both addresses inherit from a parent
 mailing software to accept any kind of address.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def mail_them_a_kit( address )
    unless address.is_a? Address
@@ -4648,7 +5198,14 @@ So you start your own class called
 \lstinline[breaklines=true]|Array|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class ArrayMine < Array
    # Build a string from this array, formatting each entry
@@ -4686,7 +5243,14 @@ Perfect.  We manage a hotel and we have an
 for a brochure.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  rooms = ArrayMine[3, 4, 6]
  print "We have " + rooms.join( ", ", "%d bed" ) + " rooms available."
@@ -4758,7 +5322,14 @@ will never speak it again -- that Module Mother Superior has given
 these wretched objects a place to stay!!''
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  # See, here is the module -- where else could our code possibly stay?
  module WatchfulSaintAgnes
@@ -5100,7 +5671,14 @@ simple lottery consisted of three unique numbers, drawn from a set of
 25 numbers.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
 
@@ -5148,7 +5726,14 @@ The \lstinline[breaklines=true]|attr_reader| shortcut is identical to
 writing this Ruby code:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    def picks; @picks; end
@@ -5167,7 +5752,14 @@ order to do that, those instance variables must be exposed.
 Let's create a random ticket and read back the numbers:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  ticket = LotteryTicket.new( rand( 25 ) + 1,
              rand( 25 ) + 1, rand( 25 ) + 1 )
@@ -5185,7 +5777,14 @@ However, I can't change the lottery ticket's picks from outside of the
 class.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  ticket.picks = [2, 6, 19]
 
@@ -5209,7 +5808,14 @@ close of the lottery, so we'll add a convenient class method for
 generating random tickets.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    def self.new_random
@@ -5230,7 +5836,14 @@ can use Ruby's \lstinline[breaklines=true]|rescue| to handle the error
 and \lstinline[breaklines=true]|redo| to start the method over.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    def self.new_random
@@ -5250,7 +5863,14 @@ The lottery captain kept a roster of everyone who bought tickets,
 along with the numbers they drew.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryDraw
    @@tickets = {}
@@ -5268,7 +5888,14 @@ along with the numbers they drew.
 Yal-dal-rip-sip was the first customer.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  LotteryDraw.buy 'Yal-dal-rip-sip',
      LotteryTicket.new( 12, 6, 19 ),
@@ -5282,7 +5909,14 @@ When it came time for the lottery draw, Paij-ree's father (the lottery
 captain) added a bit of code to randomly select the numbers.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    def score( final )
@@ -5325,7 +5959,14 @@ talking for him, but he flipped on the projector and performed all the
 hand motions.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class << LotteryDraw
    def play
@@ -5373,7 +6014,14 @@ The budding organ instructor also threw in a tricky syntax worth
 examining. In the ninth line, a winner has been found.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  winners[buyer] ||= []
  winners[buyer] << [ ticket, score ]
@@ -5384,7 +6032,14 @@ examining. In the ninth line, a winner has been found.
 The \lstinline[breaklines=true]$||=$ syntax is a shortcut.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  winners[buyer] = winners[buyer] || []
 
@@ -5464,7 +6119,14 @@ interested in having instance variables which had {\bf both readers
 \lstinline[breaklines=true]|attr_accessor|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    attr_accessor :picks, :purchased
@@ -5476,7 +6138,14 @@ interested in having instance variables which had {\bf both readers
 Which is exactly the same as this lengthier code:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    def picks;           @picks;            end
@@ -5499,7 +6168,14 @@ times you may want to put a guard at the door yourself, checking
 variables in closer detail.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class SkatingContest
    def the_winner; @the_winner; end
@@ -5666,7 +6342,14 @@ Paij-ree sent the gull to find out ({\em D-D-D-A-D}, {\em
 calculator.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class AnimalLottoTicket
 
@@ -6095,7 +6778,14 @@ paranormal presence!) and the goat amicably watched Dr. Cham hack out
 a Ruby module.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'endertromb'
  module WishScanner
@@ -6135,7 +6825,14 @@ use it?'' said the goat, appalled.
 \lstinline[breaklines=true]|MindReader|,'' said Dr. Cham.  And he did.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'mindreader'
  class MindReader
@@ -6185,7 +6882,14 @@ didn't think I was going to like you very much.''
 real than the cartoons make it seem.''
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'wishmaker'
  reader = MindReader.new
@@ -6296,7 +7000,10 @@ The Rockettes.
 
 And Digger Dosh bludgeoned and feasted on each second they left behind
 them.
-\cleartoevenpage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\cleartooddpage
 
 
 \chapter{Downtown}
@@ -6305,6 +7012,9 @@ them.
   \includegraphics{cache/chapterpoignantguide6.png}
 \end{center}
 \vspace{2cm}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
 	\includegraphics[width=1.0\textwidth]{cache/55.png}
         \includegraphics[width=1.0\textwidth]{cache/56.png}
@@ -6361,7 +7071,14 @@ post-modernism we're born with, {\em this} meta-cult offers a free
 lost-and-found service for the residents of Wixl.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
  open( "http://preeventualist.org/lost" ) do |lost|
@@ -6528,7 +7245,14 @@ to getting out of this mess. I just want to poke around, see if there
 are any clues here.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
 
@@ -6553,7 +7277,14 @@ In a previous chapter, we stored your diabolical ideas in a text file.
 You read these files in Ruby using \lstinline[breaklines=true]|open|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
 
@@ -6580,7 +7311,14 @@ If someone wants to read your diabolical idea about hiding lettuce in
 the church chairs, assuming you've posted it as a web page:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
 
@@ -6610,7 +7348,14 @@ page one line at a time, if you're searching for something.  Or if the
 page is big and you want to conserve your computer's memory.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
  open( "http://preeventualist.org/lost/searchfound?q=truck" ) do |truck|
@@ -6653,7 +7398,14 @@ array or hash.  Now look at an IO source as a collection of lines.
 The iterator can crawl that collection of lines.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class IO
    # Definition for the each_line method.  Notice how it has no
@@ -6677,7 +7429,14 @@ inside the block is done.  And then it goes back to blinking and you
 can press the button again if you like.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def yield_thrice
    yield
@@ -6714,7 +7473,14 @@ You've seen blocks attached to methods.  Any Ruby method can have
 block attached to the end.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  # The brief style of attaching a block to a method.
  # Here the block is surrounded with curly braces.
@@ -6737,7 +7503,14 @@ they're racing through the desert.  The block taps his helmet like,
 ``I get it, my brain gets it.''
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  # The method opens two files and slides the resulting IO objects down the
  # chute to an attached block.
@@ -6786,7 +7559,14 @@ me.
 Let's neatly {\em encapsulate} the entire service into a single class.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'open-uri'
  module PreEventualist
@@ -6977,7 +7757,14 @@ You stand at the entrance of Dwemthy's Array.  You are a rabbit who is
 about to die. And deep at the end of the Array:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Dragon < Creature
    life 1340     # tough scales
@@ -7128,7 +7915,14 @@ and lumbering. Or septulets, {\bf CERTAINLY}.  Or seamstresses.  Or
 cat brains.  Or dragons.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Dragon < Creature
    life 1340     # tough scales
@@ -7162,7 +7956,14 @@ Each of the \lstinline[breaklines=true]|Dragon|'s traits are simply
 {\bf class methods}.  You could also write this as:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Dragon < Creature
    life( 1340 )     # tough scales
@@ -7189,7 +7990,14 @@ of \lstinline[breaklines=true]|Creature|.  {\bf Save this code into a
   file called \lstinline[breaklines=true]|dwemthy.rb|.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  # The guts of life force within Dwemthy's Array
  class Creature
@@ -7240,7 +8048,14 @@ method.  This bears resemblance to the basic lottery tickets from the
 chapter previous.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class LotteryTicket
    attr_reader :picks, :purchased
@@ -7285,7 +8100,14 @@ monsters for you.  So when Ruby gets to the
 \lstinline[breaklines=true]|traits|:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Creature
    traits :life, :strength, :charisma, :weapon
@@ -7301,7 +8123,14 @@ and build out all the various methods, expanding the
 \lstinline[breaklines=true]|traits| list like this:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Creature
 
@@ -7347,7 +8176,14 @@ Now, Ruby will gladly accept this six-line
 when printed on playing cards:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Dragon < Creature
    life 1340     # tough scales
@@ -7379,7 +8215,14 @@ in this alley. The vagrant \lstinline[breaklines=true]|eval| takes
 code you have stored up in a string and it executes that code.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  drgn = Dragon.new
  # is identical to...
@@ -7396,7 +8239,14 @@ writing a program which creates a new
 \lstinline[breaklines=true]|Dragon| would be.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  print "What monster class have you come to battle? "
  monster_class = gets
@@ -7473,7 +8323,14 @@ Tread carefully -- here is {\bf the other half of DWEMTHY'S ARRAY!!}
 {\bf Add these lines to \lstinline[breaklines=true]|dwemthy.rb|.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Creature
 
@@ -7571,7 +8428,14 @@ altogether character -- inscribed below.  {\bf Save this as
   \lstinline[breaklines=true]|rabbit.rb|.}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class Rabbit < Creature
    traits :bombs
@@ -7658,7 +8522,14 @@ aqueducts.  And sneak up on the
 \lstinline[breaklines=true]|ScubaArgentine|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class ScubaArgentine < Creature
    life 46
@@ -7812,7 +8683,14 @@ guy.
 You have six foes.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class IndustrialRaverMonkey < Creature
    life 46
@@ -7870,7 +8748,14 @@ were born there. Can we move on??
 As Dwemthy's Array gets deeper, the challenge becomes more difficult.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  dwary = DwemthysArray[IndustrialRaverMonkey.new,
                        DwarvenAngel.new,
@@ -7919,7 +8804,14 @@ Dwemthy's Array again.  {\bf Explain yourself Dwemthy!}
 Here, I shall unmask the Array itself for you.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class DwemthysArray < Array
    alias _inspect inspect
@@ -8014,7 +8906,14 @@ saying so you can see it for your self.
 You could write your own Ruby prompt very easily:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  loop do
    print ">> "
@@ -8053,7 +8952,14 @@ two methods named the same.  If you add a second
 You can, however, have a method which {\bf answers to many names}.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  class NameCaller
    def method_missing( name, *args )
@@ -8095,7 +9001,14 @@ call forwarding, so that when you attack the Array, it passes that
 attack on straight to the first monster in the Array.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  def method_missing( meth, *args )
    answer = first.send( meth, *args )
@@ -8842,7 +9755,14 @@ that run-on for many lines.  Like, say you're adding a new method with
 \lstinline[breaklines=true]|eval|.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  m = "bats!"
  eval %{
@@ -9033,7 +9953,14 @@ pasting them into your code without having the foggiest idea why the
 expression works.  Or {\em if} it works!
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  loop do
    print "Enter your password: "
@@ -9089,7 +10016,14 @@ search it for a word or phrase.  Since a bit of time has passed, let's
 search the Preeventualist's Losing and Finding Registry again.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  require 'preeventualist'
  PreEventualist.searchfound( 'truck' ) do |page|
@@ -9111,7 +10045,14 @@ identical.  Find the word ``truck''.  Anywhere in the string.
 Uhm, what if truck is capitalized.  {\bf Truck.}  What then?
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  puts line if line.match( /[Tt][Rr][Uu][Cc][Kk]/i )
 
@@ -9129,7 +10070,14 @@ And so on.)
 But a simpler way to write it is like this:
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  puts line if line.match( /truck/i )
 
@@ -9144,7 +10092,14 @@ Oh, and maybe you're truck is a certain model number.  A T-1000.  Or a
 T-2000.  You can't remember.  It's a T {\em something} thousand.
 
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
  puts line if line.match( /T-\d000/ )
 
@@ -9364,7 +10319,10 @@ can shake this.
 	\includegraphics[width=1.0\textwidth]{cache/79.png}
 
 	\includegraphics[width=1.0\textwidth]{cache/80.png}
-\cleartoevenpage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\cleartooddpage
 
 
 \chapter{When You Wish Upon a Beard}
@@ -9373,6 +10331,9 @@ can shake this.
 
 \includegraphics[width=1.0\textwidth]{cache/81.png}
 
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \clearpage
 
 
@@ -9436,9 +10397,20 @@ can shake this.
 
 \vspace*{0.6cm} \includegraphics[width=1.0\textwidth]{cache/101.png}
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\cleartooddpage
 
 \appendix
+\renewcommand*{\thechapter}{\Roman{chapter}}
 \chapter{The Tiger's Vest (with a Basic Introduction to Irb)}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 \pagebreak
 
 \includegraphics[width=1.0\textwidth]{cache/tigersvest1.png}
@@ -9727,10 +10699,11 @@ the world here, folks, but the volume comes down from the sky \sout{a
 bold, red crescendo of}
 
 \begin{center}
-{\Huge((\textbf{ri}))}
+{\Huge{\color{parensaroundricolor}((}\color{ricolor}\textbf{ri}{\color{parensaroundricolor}))}}
 \end{center}
 
-{\bf\large (Ruby's Own 411 or 555-1212 or \emph{Yes, Operator, Get
+{\color{belgradeoperatorcolor}
+\bf\large (Ruby's Own 411 or 555-1212 or \emph{Yes, Operator, Get
     Belgrade on the Line} \sout{-- I'll Be Right Here --} Just Plain
   Hammering The Pound Key Until Someone Picks Up\ldots)}
 
@@ -9810,7 +10783,14 @@ sight.
 
 In Ruby's \lstinline[breaklines=false]|date| class, here we have such commented methods:
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
  # Get the time of this date as [hours, minutes, seconds,
  # fraction_of_a_second]
  def time() self.class.day_fraction_to_time(day_fraction) end
@@ -9846,7 +10826,14 @@ the paragraph will be recognized as a list item. Then, if your
 description needs to be converted to HTML, you'll see the list item
 appear as an HTML unordered list.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
  # Get the time of this date as an Array of:
  # * hours
  # * minutes
@@ -9866,7 +10853,14 @@ method in one of my projects called RedCloth. Notice the indented
 example as well as the Ruby class and method names flanked with
 plusses.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
  #
  # Returns a new RedCloth object, based on +String+ and
  # enforcing all the included +restrictions+.
@@ -9916,6 +10910,17 @@ Well then. Your hands are in it all now. Welcome to Ruby.
 \newpage
 
 \includegraphics[width=1.0\textwidth]{cache/tigersvest4.png} 
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2.7in}
+\manrotatedquadrifolium
+\end{center}
+
 
 
 \end{document}

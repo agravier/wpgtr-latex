@@ -27,6 +27,7 @@
 \usepackage{nextpage}
 \usepackage{picins}
 \usepackage[normalem]{ulem}
+\usepackage{verbatim}
 
 \usepackage{manfnt}
 
@@ -241,7 +242,7 @@ couple balloons that were tied to a pole at the dealership and I
 relocated them to the dog's collar.  Then, I decided he would be my
 dog.  I named him Bigelow.
 
-	\begin{sidebar}[What I'm Going to Do With the Massive Proceeds from this Book]
+	\begin{sidebar}{What I'm Going to Do With the Massive Proceeds from this Book}{39}
 	Anyone who's written a book can tell you how easily an author is distracted by visions of grandeur. In my experience, I stop twice for each paragraph, and four times for each panel of a comic, just to envision the wealth and prosperity that this book will procure for my lifestyle. I fear that the writing of this book will halt altogether to make way for the armada of SUVs and luxury town cars that are blazing away in my head.\vspace{6pt}
 
 	Rather than stop my production of the (Poignant) Guide, I've reserved this space as a safety zone for pouring my empty and vain wishes.\vspace{6pt}
@@ -287,7 +288,7 @@ people living on a floating blue rock.  How can I knock Ruby?  Who's
 to say that I'm not going to happen to choke on my cell phone and die
 later that evening.  Why's dead, Ruby lives on.
 
-	\begin{sidebar}[What I'm Going to Do With the Massive Proceeds from this Book]
+	\begin{sidebar}{What I'm Going to Do With the Massive Proceeds from this Book}{39}
 	\textit{(cont'd)} In another, related fantasy, I am throwing away lettuce. Such roughage isn't befitting of my new vinegar. No, I will have come to a point where the fame and the aristocracy will have corrupted me to my core. My new lettuce will be cash. Cold, hard cash, Mrs. Price.\vspace{6pt}
 	
 	Soon, I will be expending hundreds for a block of myzithra cheese.\vspace{6pt}
@@ -393,7 +394,7 @@ my person to keep me sustained until the final page.
 	
 \section{How Books Start}
 
-	\begin{sidebar}[What I'm Going to Do With the Massive Proceeds from this Book]
+	\begin{sidebar}{What I'm Going to Do With the Massive Proceeds from this Book}{39}
 	\textit{(cont'd)} You've got to hand it to fun money, though. Fake money rules. You can get your hands on it so quickly. For a moment, it seems like you're crazy rich. When I was a kid, I got with some of the neighborhood kids and we built this little Tijuana on our street. We made our own pesos and wore sombreros and everything!\vspace{6pt}
 	
 	One kid was selling hot tamales for two pesos each. \textit{Two pesos!} Did this kid know that the money was fake? Was he out of his mind? Who invited this kid? Didn't he know this wasn't really Tijuana? Maybe he was really from Tijuana! Maybe these were \textit{real} pesos! Let's go make more \textit{real} pesos!\vspace{6pt}
@@ -1272,6 +1273,14 @@ section.
 
 \section{If I Haven't Treated You Like a Child Enough Already}
 
+	\begin{sidebar}{Seven Moments of Zen from My Life}{39}
+		\begin{enumerate}
+			\item 8 years old. Just laying in bed, thinking. And I realize. \textit{There's nothing stopping me from becoming a child dentist.}
+			\item 21. Found a pencil on the beach. Embossed on it: \textit{I cherish serenity}. Tucked it away into the inside breast pocket of my suit jacket. Watched the waves come and recede.
+			\item 22. Found a beetle in my bathroom that was just about to fall into a heating vent. Swiped him up. Tailored him a little backpack out of a leaf and a thread. In the backpack: a skittle and a AAA battery. That should last him. Set him loose out by the front gate.
+			\item Three years of age. Brushed aside the curtain. Sunlight.
+		\end{enumerate}
+	\end{sidebar}
 
 I'm proud of you.  Anyone will tell you how much I brag about you.
 How I go on and on about this great anonymous person out there who
@@ -1289,6 +1298,15 @@ schoolmaster. I need to start seeing good marks from you.  So far,
 you've done nothing but move your eyes around a lot.  Okay, sure, you
 did some exceptional reading aloud earlier.  Now we need some
 comprehension skills here, Smotchkkiss.
+
+	\begin{sidebar}{Seven Moments of Zen from My Life}{39}
+		\begin{enumerate}
+			\setcounter{enumi}{4}
+			\item 14. Riding my bike out on the pier with my coach who is jogging behind me as the sun goes down right after I knocked out Piston Honda in the original Nintendo version of Mike Tyson's Punch-Out.
+			\item 11. Sick. Watching Heathcliff on television. For hours, it was Heathcliff. And he was able to come right up close to my face. His head spun toward me. His face pulsed back and forth, up close, then off millions of miles away. Sound was gone. In fractions of a second, Heathcliff filled the universe, then blipped off to the end of infinity. I heard my mother's voice trying to cut through the cartoon. Heathclose, Heathaway, Heathclose, Heathaway. It was a religious rave with a cat strobe and muffled bass of mother's voice. (I ran a fever of 105 that day.)
+			\item 18. Bought myself a gigapet. A duck. Fed it for awhile. Gave it a bath. Forgot about it for almost a couple months. One day, while cleaning, I found a chain and he was there on the end. Hey, little duck. Mad freaky, hoppin' around with his hair out, squawking diagonal lines. In a tuxedo.
+		\end{enumerate}
+	\end{sidebar}
 
 {\bf Say aloud each of the parts of speech used below.}
 
@@ -1321,10 +1339,20 @@ finally, the string \lstinline[breaklines=true]|"aura"|.
 
 {\bf Say aloud each of the parts of speech used below.}
 
-\begin{quote}
-\lstinline[breaklines=true]|['toast', 'cheese', 'wine'].|\end{quote}
+\begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
+    commentstyle = \ttfamily\color{commentcolor},
+    keywordstyle=\ttfamily\color{keywordscolor},
+    stringstyle=\color{stringcolor},
+    language=Ruby,
+    basicstyle=\small\ttfamily,
+    showstringspaces=false,
+  ]
 
-\lstinline[breaklines=true]$each { |food| print( food.capitalize ) }$
+ ['toast', 'cheese', 'wine'].each { 
+ 	|food| print( food.capitalize ) 
+ }
+
+\end{lstlisting}
 
 This caterpillar partakes of finer delicacies.  An {\em array} starts
 this example.  In the array, three {\em strings}
@@ -2258,9 +2286,6 @@ the window and watch for FBI.  I'm going to start this script.
 
 
 \subsection{The Flipping Script}
-
-
-
 
 \begin{lstlisting}[basicstyle=\ttfamily\color{basiccolor},
     commentstyle = \ttfamily\color{commentcolor},
@@ -4603,6 +4628,11 @@ You'll see plenty of examples of variable names being reused.
 
 \end{lstlisting}
 
+	\begin{sidebar}{An Excerpt from The Scarf Eaters}{20}
+		\textit{(from Chapter VII: When Push Comes to Shove--or Love.)}\vspace{6pt}
+		
+		``Never say my name again!" screamed Chester, and with the same gusto, he turned back to the \textbf{File > Publish Settings...} dialog to further optimize his movie down to a measly 15k.
+	\end{sidebar}
 
 And, yes, sometimes objects disappear.  {\bf If you can't get to an
   object through a variable, then Ruby will figure you are done with
@@ -5072,6 +5102,35 @@ socially crippled.  He actually tries to kill himself, but Dustin
 Hoffman sits in the window sill and starts crying and singing this
 totally hilarious heartbreak song.  I've got it here, you should see
 it.''
+
+	\begin{sidebar}{}{20}
+\begin{verbatim}
+		we want a tambourine!
+           /
+          |  we want all a tambourine!
+          |      /
+          \__  |
+        /  o o \__/\__/\_
+      /.           \ o o \____
+       /'      ----/          \
+_____ /  '    / /.\\   #------/
+       /     /        /     \\
+             /       ///
+      /so               \
+           /\   \me time\\..
+       /pp/  \s these pictur\\
+      /es/   \don't w\ \ork out\
+     ***      *** right but i
+       think this time
+          they did
+            ooo o
+             oo
+            o
+         o
+      {o}
+   ^
+\end{verbatim}
+	\end{sidebar}
 
 ``Can I get something to eat?'' asked the Doctor.  And he still felt
 filthy.

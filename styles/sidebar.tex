@@ -8,22 +8,28 @@
 \definecolor{sidebarDarkGray}{HTML}{555555}
 
 \newenvironment{sidebar}[2]
-    {
-    	\def\bottomSpace{#2}
-		\wrapfigure{I}[34pt]{0.4\textwidth}
-		\vspace{-1.5em}
-		\begin{mdframed}[leftmargin=1cm,rightmargin=0cm,innerleftmargin=0cm,innerrightmargin=0cm,roundcorner=0pt,backgroundcolor=tan!20,skipabove=0pt,skipbelow=0pt,topline=false,leftline=false,bottomline=false,rightline=false]
-		\colorbox{sidebarGray}{\hspace{0.38\linewidth}\textcolor{white}{Sidebar!}\hspace{0.38\linewidth} \vrule height9pt depth3.5pt width0pt}
-		\raggedright{\textcolor{sidebarDarkGray}{\textbf{#1}}}
-		\raisebox{5px}{\noindent\textcolor{sidebarDivider}{\rule{\textwidth}{3px}}}
-		\begin{minipage}{\textwidth}\footnotesize
-	}
-    {
-    
-    	\vspace{3px}
-		\end{minipage}
-		\colorbox{sidebarGray}{\hspace{0.38\linewidth}\textcolor{white}{Sidebar!}\hspace{0.38\linewidth} \vrule height9pt depth3.5pt width0pt}
-		\end{mdframed}
-		\vspace{-\bottomSpace pt}
-		\endwrapfigure
-	}
+{
+	\def\bottomSpace{#2}
+	\wrapfigure{I}[34pt]{0.4\textwidth}
+	\vspace{-1.5em}
+	\begin{mdframed}[leftmargin=1cm,rightmargin=0cm,innerleftmargin=0cm,innerrightmargin=0cm,roundcorner=0pt,backgroundcolor=tan!20,skipabove=0pt,skipbelow=0pt,topline=false,leftline=false,bottomline=false,rightline=false]
+	\colorbox{sidebarGray}{\hspace{0.38\linewidth}\textcolor{white}{Sidebar!}\hspace{0.38\linewidth} \vrule height9pt depth3.5pt width0pt}
+	\raggedright{\textcolor{sidebarDarkGray}{\textbf{#1}}}
+	\raisebox{5px}{\noindent\textcolor{sidebarDivider}{\rule{\textwidth}{3px}}}
+	\begin{minipage}{\textwidth}\footnotesize
+}
+{
+
+	\vspace{3px}
+	\end{minipage}
+	\colorbox{sidebarGray}{\hspace{0.38\linewidth}\textcolor{white}{Sidebar!}\hspace{0.38\linewidth} \vrule height9pt depth3.5pt width0pt}
+	\end{mdframed}
+	\vspace{-\bottomSpace pt}
+	\endwrapfigure
+}
+	
+\newcommand{\sidebarImg}[1]{
+	\hfill
+	\includegraphics[width=0.8\textwidth]{#1}
+	\hspace*{\fill}
+}
